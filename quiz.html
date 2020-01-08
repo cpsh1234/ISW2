@@ -48,11 +48,11 @@
       glibm(2,i);
       gcitm(2,i);
       get_cat_weight(i);
-        max_lab += Math.abs(lab_m*qn_m);
-        max_con += Math.abs(con_m*qn_m);
-        max_ld += Math.abs(ld_m*qn_m);
-        max_lib += Math.abs(lib_m*qn_m);
-        max_cit += Math.abs(cit_m*qn_m);
+        max_lab += Math.abs(lab_w*qn_w);
+        max_con += Math.abs(con_w*qn_w);
+        max_ld += Math.abs(ld_w*qn_w);
+        max_lib += Math.abs(lib_w*qn_w);
+        max_cit += Math.abs(cit_w*qn_w);
     }
 //Initialises the question
     function init_question() {
@@ -148,11 +148,11 @@
       glibm(mult,qn);
       gcitm(mult,qn);
       get_cat_weight(qn);
-        lab += lab_m*qn_m;
-        con += con_m*qn_m;
-        ld += ld_m*qn_m;
-        lib += lib_m*qn_m;
-        cit += cit_m*qn_m;
+        lab += lab_w*qn_w;
+        con += con_w*qn_w;
+        ld += ld_w*qn_w;
+        lib += lib_w*qn_w;
+        cit += cit_w*qn_w;
   }
   
     function prev_question() {
@@ -166,11 +166,11 @@
       glibm(prev_answer,qn);
       gcitm(prev_answer,qn);
       get_cat_weight(qn);
-        lab += lab_m*qn_m;
-        con += con_m*qn_m;
-        ld += ld_m*qn_m;
-        lib += lib_m*qn_m;
-        cit += cit_m*qn_m;
+        lab -= lab_w*qn_w;
+        con -= con_w*qn_w;
+        ld -= ld_w*qn_w;
+        lib -= lib_w*qn_w;
+        cit -= cit_w*qn_w;
         prev_answer = null;
         init_question();
 
