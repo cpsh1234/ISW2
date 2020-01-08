@@ -132,6 +132,9 @@
   };
 
     function next_question(mult) {
+      if (qn < questions.length) {
+            init_question();
+        }
       glabm(mult,qn);
       gconm(mult,qn);
       gldm(mult,qn);
@@ -145,9 +148,7 @@
         cit += cit_m*qn_m;
         qn++;
         prev_answer = mult;
-        if (qn < questions.length) {
-            init_question();
-        } else {
+        if (qn == questions.length){
             results();
         }
     }
