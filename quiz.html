@@ -132,10 +132,18 @@
   };
 
     function next_question(mult) {
-      if (qn < questions.length) {
+      mark_question(mult)
+        qn++;
+        prev_answer = mult;
+        if (qn < questions.length) {
             init_question();
+        } else {
+            results();
         }
-      glabm(mult,qn);
+        }
+    }
+  function mark_question(mult){
+    glabm(mult,qn);
       gconm(mult,qn);
       gldm(mult,qn);
       glibm(mult,qn);
@@ -146,12 +154,8 @@
         ld += ld_m*qn_m;
         lib += lib_m*qn_m;
         cit += cit_m*qn_m;
-        qn++;
-        prev_answer = mult;
-        if (qn == questions.length){
-            results();
-        }
-    }
+  }
+  
     function prev_question() {
         if (prev_answer == null) {
             return;
