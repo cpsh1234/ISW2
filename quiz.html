@@ -38,6 +38,8 @@
     lab = con = ld = lib = cit = 0;
     var qn = 0; // Question number
     var prev_answer = null;
+    var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
+    lab_w = con_w = ld_w = lib_w = cit_w = qn_w = 0;
     init_question();
     for (var i = 0; i < questions.length; i++) {
         max_lab += Math.abs(glabm(2,i)*get_cat_weight(i);)
@@ -62,10 +64,10 @@
   
 // Weight Party Scores
   function glabm(mult,i){
-    if(Math.abs(questions[i].effect.lab) == 2){ return mult*scoquestions[i].effect.lab } else
+    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*scoquestions[i].effect.lab } else
     if(Math.abs(questions[i].effect.lab) == 1){
-        if(mult > 0){ return 2} else
-        if(mult < 0){ return -2} else
+        if(mult > 0){ lab_w = 2*} else
+        if(mult < 0){ lab_w = -2} else
         {return 0}
     } else
     {return 0}
