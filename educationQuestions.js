@@ -1,4 +1,4 @@
-educationQuestions = [
+questions = [
 {
         "question": "All schools should be funded equally.",
         "effect": {
