@@ -40,19 +40,20 @@
     var prev_answer = null;
     var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
     lab_w = con_w = ld_w = lib_w = cit_w = 0;
-    qn_w = 19448 * getQueryVariable("a");
+    var section = getQueryVariable("a");
+    qn_w = 19448;
     init_question();
-    for (var i = 0; i < questions.length; i++) {
+    for (var i = 0; i < healthcareQuestions.length; i++) {
       glabm(2,i);
       gconm(2,i);
       gldm(2,i);
       glibm(2,i);
       gcitm(2,i);
-        max_lab += Math.abs(lab_w*qn_w);
-        max_con += Math.abs(con_w*qn_w);
-        max_ld += Math.abs(ld_w*qn_w);
-        max_lib += Math.abs(lib_w*qn_w);
-        max_cit += Math.abs(cit_w*qn_w);
+        max_lab += Math.abs(lab_w*qn_w*section);
+        max_con += Math.abs(con_w*qn_w*section);
+        max_ld += Math.abs(ld_w*qn_w*section);
+        max_lib += Math.abs(lib_w*qn_w*section);
+        max_cit += Math.abs(cit_w*qn_w*section);
     }
 //Initialises the question
     function init_question() {
@@ -134,7 +135,7 @@
       mark_question(mult);
         qn++;
         prev_answer = mult;
-        if (qn < questions.length) {
+        if (qn < healthcareQuestions.length) {
             init_question();
         } else {
             results();
@@ -146,11 +147,11 @@
       gldm(mult,qn);
       glibm(mult,qn);
       gcitm(mult,qn);
-        lab += lab_w*qn_w;
-        con += con_w*qn_w;
-        ld += ld_w*qn_w;
-        lib += lib_w*qn_w;
-        cit += cit_w*qn_w;
+        lab += lab_w*qn_w*section;
+        con += con_w*qn_w*section;
+        ld += ld_w*qn_w*section;
+        lib += lib_w*qn_w*section;
+        cit += cit_w*qn_w*section;
   }
   
     function prev_question() {
@@ -163,11 +164,11 @@
       gldm(prev_answer,qn);
       glibm(prev_answer,qn);
       gcitm(prev_answer,qn);
-        lab -= lab_w*qn_w;
-        con -= con_w*qn_w;
-        ld -= ld_w*qn_w;
-        lib -= lib_w*qn_w;
-        cit -= cit_w*qn_w;
+        lab -= lab_w*qn_w*section;
+        con -= con_w*qn_w*section;
+        ld -= ld_w*qn_w*section;
+        lib -= lib_w*qn_w*section;
+        cit -= cit_w*qn_w*section;
         prev_answer = null;
         init_question();
 
