@@ -29,20 +29,15 @@
   
 <script>
    var mult = 0;
-   var max_lab, max_con, max_ld, max_lib, max_cit; // Max possible scores
    var lab, con, ld, lib, cit; // User's scores
+  
+  var care = getQueryVariable("y")
    
    lab = getQueryVariable("a");
-   con = getQueryVariable("b")
-   ld =  getQueryVariable("c")
-   lib = getQueryVariable("d")
-   cit = getQueryVariable("e")
-   
-   max_lab = getQueryVariable("ma");
-   max_con = getQueryVariable("mb")
-   max_ld =  getQueryVariable("mc")
-   max_lib = getQueryVariable("md")
-   max_cit = getQueryVariable("me")
+   con = getQueryVariable("b");
+   ld =  getQueryVariable("c");
+   lib = getQueryVariable("d");
+   cit = getQueryVariable("e");
    
          function getQueryVariable(variable)
     {
@@ -57,18 +52,15 @@
    
    function questions(i){
    mult = i;
+     care += i;
        location.href = `educationQuiz.html`
                    + `?z=${mult}`
                    + `&a=${lab}`
-                   + `&ma=${max_lab}`
                    + `&b=${con}`
                    + `&c=${ld}`
                    + `&d=${lib}`
                    + `&e=${cit}`
-                   + `&mb=${max_con}`
-                   + `&mc=${max_ld}`
-                   + `&md=${max_lib}`
-                   + `&me=${max_cit}`;
+                   + `&y=${care}`;
                    }
 </script>
 </body>
