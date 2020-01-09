@@ -52,7 +52,7 @@
    
    function questions(i){
    mult = i;
-     care = +getQueryVariable("y") + +i;
+     care = parseInt(getQueryVariable("y")) + parseInt(i);
        location.href = `educationQuiz.html`
                    + `?z=${mult}`
                    + `&a=${lab}`
