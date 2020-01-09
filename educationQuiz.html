@@ -47,11 +47,11 @@
   
   var pass_lab, pass_con, pass_ld, pass_lib, pass_cit;
   
-   pass_lab = getQueryVariable("a");
-   pass_con = getQueryVariable("b")
-   pass_ld =  getQueryVariable("c")
-   pass_lib = getQueryVariable("d")
-   pass_cit = getQueryVariable("e")
+   pass_lab = parseInt(getQueryVariable("a"));
+   pass_con = parseInt(getQueryVariable("b"));
+   pass_ld =  parseInt(getQueryVariable("c"));
+   pass_lib = parseInt(getQueryVariable("d"));
+   pass_cit = parseInt(getQueryVariable("e"));
   
     init_question();
     for (var i = 0; i < questions.length; i++) {
@@ -152,11 +152,11 @@
         if (qn < questions.length) {
             init_question();
         } else {
-          pass_lab += Number(calc_score(lab,max_lab));
-          pass_con += Number(calc_score(con,max_con));
-          pass_ld += Number(calc_score(ld,max_ld));
-          pass_lib += Number(calc_score(lib,max_lib));
-          pass_cit += Number(calc_score(cit,max_cit));
+          pass_lab += parseInt(calc_score(lab,max_lab));
+          pass_con += parseInt(calc_score(con,max_con));
+          pass_ld += parseInt(calc_score(ld,max_ld));
+          pass_lib += parseInt(calc_score(lib,max_lib));
+          pass_cit += parseInt(calc_score(cit,max_cit));
             results();
         }
     }
