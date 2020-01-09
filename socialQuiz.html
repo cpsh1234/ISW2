@@ -53,7 +53,6 @@
    pass_lib = 0;
    pass_cit = 0;
   
-  
     init_question();
     for (var i = 0; i < questions.length; i++) {
       glabm(2,i);
@@ -96,7 +95,7 @@
   
 // Weight Party Scores
   function glabm(mult,i){
-    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab } else
+    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab} else
     if(Math.abs(questions[i].effect.lab) == 1){
         if(mult > 0){ lab_w = 2*questions[i].effect.lab} else
         if(mult < 0){ lab_w = -2*questions[i].effect.lab} else
@@ -196,9 +195,9 @@
     }
 
   
-        function calc_score(score,max) {
+      function calc_score(score,max) {
         return (100*(max+score)/(2*max)).toFixed(1)* getQueryVariable("z")
-    
+    }
   
     function results() {
         location.href = `constitutionSection.html`
@@ -207,7 +206,7 @@
             + `&c=${pass_ld}`
             + `&d=${pass_lib}`
             + `&e=${pass_cit}`
-            + `&y=${getQueryVariable("y")}`        
+            + `&y=${getQueryVariable("y")}`;      
     }
 </script>
 </body>
