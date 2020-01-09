@@ -96,10 +96,10 @@
   
 // Weight Party Scores
   function glabm(mult,i){
-    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab/2 } else
+    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab} else
     if(Math.abs(questions[i].effect.lab) == 1){
-        if(mult > 0){ lab_w = questions[i].effect.lab} else
-        if(mult < 0){ lab_w = -questions[i].effect.lab} else
+        if(mult > 0){ lab_w = *questions[i].effect.lab} else
+        if(mult < 0){ lab_w = -2*questions[i].effect.lab} else
         {lab_w = 0}
     } else
     {lab_w = 0}
@@ -193,16 +193,16 @@
   
     function results() {
         location.href = `socialSection.html`
-            + `?a=${lab}`
-            + `?ma=${max_lab}`
-            + `&b=${con}`
-            + `&c=${ld}`
-            + `&d=${lib}`
-            + `&e=${cit}`
-            + `&mb=${max_con}`
-            + `&mc=${max_ld}`
-            + `&md=${max_lib}`
-            + `&me=${max_cit}`;        
+                   + `?a=${lab}`
+                   + `&ma=${max_lab}`
+                   + `&b=${con}`
+                   + `&c=${ld}`
+                   + `&d=${lib}`
+                   + `&e=${cit}`
+                   + `&mb=${max_con}`
+                   + `&mc=${max_ld}`
+                   + `&md=${max_lib}`
+                   + `&me=${max_cit}`;       
     }
 </script>
 </body>
