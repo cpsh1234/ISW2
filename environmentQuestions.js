@@ -1,4 +1,4 @@
-environmentQuestions = [
+questions = [
 {
         "question": "The UK should subsidise replacements of fossil fuels.",
         "effect": {
