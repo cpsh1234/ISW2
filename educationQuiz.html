@@ -34,6 +34,7 @@
 <!-- JavaScript for the test itself -->
 <script>
     var max_lab, max_con, max_ld, max_lib, max_cit; // Max possible scores
+    max_lab = max_con = max_ld = max_lib = max_cit =0;
     var lab, con, ld, lib, cit; // User's scores
     var qn = 0; // Question number
     var prev_answer = null;
@@ -46,12 +47,6 @@
    ld =  getQueryVariable("c")
    lib = getQueryVariable("d")
    cit = getQueryVariable("e")
-   
-   max_lab = getQueryVariable("ma");
-   max_con = getQueryVariable("mb")
-   max_ld =  getQueryVariable("mc")
-   max_lib = getQueryVariable("md")
-   max_cit = getQueryVariable("me")
   
   
     init_question();
