@@ -1,4 +1,5 @@
 questions = [
+  {
         "question": "The NHS needs to have higher real-terms funding.",
         "effect": {
             "lab": 2,
