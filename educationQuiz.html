@@ -152,11 +152,11 @@
         if (qn < questions.length) {
             init_question();
         } else {
-          pass_lab += calc_score(lab,max_lab);
-          pass_con += calc_score(con,max_con);
-          pass_ld += calc_score(ld,max_ld);
-          pass_lib += calc_score(lib,max_lib);
-          pass_cit += calc_score(cit,max_cit);
+          pass_lab += Number(calc_score(lab,max_lab));
+          pass_con += Number(calc_score(con,max_con));
+          pass_ld += Number(calc_score(ld,max_ld));
+          pass_lib += Number(calc_score(lib,max_lib));
+          pass_cit += Number(calc_score(cit,max_cit));
             results();
         }
     }
