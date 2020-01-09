@@ -1,4 +1,4 @@
-defenceEtcQuestions = [
+questions = [
 {
         "question": "The UK should recognise Palestine as a separate nation.",
         "effect": {
