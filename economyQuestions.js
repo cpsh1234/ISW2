@@ -1,4 +1,4 @@
-economyQuestions = [
+questions = [
 {
         "question": "The UK should nationalise Water.",
         "effect": {
