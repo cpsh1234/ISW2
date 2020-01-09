@@ -39,7 +39,8 @@
     var qn = 0; // Question number
     var prev_answer = null;
     var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
-    lab_w = con_w = ld_w = lib_w = cit_w = qn_w = 0;
+    lab_w = con_w = ld_w = lib_w = cit_w = 0;
+    qn_w = 19448 * getQueryVariable("a");
     init_question();
     for (var i = 0; i < questions.length; i++) {
       glabm(2,i);
@@ -47,7 +48,6 @@
       gldm(2,i);
       glibm(2,i);
       gcitm(2,i);
-      get_cat_weight(i);
         max_lab += Math.abs(lab_w*qn_w);
         max_con += Math.abs(con_w*qn_w);
         max_ld += Math.abs(ld_w*qn_w);
@@ -56,8 +56,8 @@
     }
 //Initialises the question
     function init_question() {
-        document.getElementById("question-text").innerHTML = questions[qn].question;
-        document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (questions.length);
+        document.getElementById("question-text").innerHTML = healthcareQuestions[qn].question;
+        document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (healthcareQuestions.length);
         if (prev_answer == null) {
             document.getElementById("back_button").style.display = 'none';
             document.getElementById("back_button_off").style.display = 'block';
@@ -81,65 +81,53 @@
   
 // Weight Party Scores
   function glabm(mult,i){
-    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab } else
-    if(Math.abs(questions[i].effect.lab) == 1){
-        if(mult > 0){ lab_w = 2*questions[i].effect.lab} else
-        if(mult < 0){ lab_w = -2*questions[i].effect.lab} else
+    if(Math.abs(healthcareQuestions[i].effect.lab) == 2){ lab_w = mult*healthcareQuestions[i].effect.lab } else
+    if(Math.abs(healthcareQuestions[i].effect.lab) == 1){
+        if(mult > 0){ lab_w = 2*healthcareQuestions[i].effect.lab} else
+        if(mult < 0){ lab_w = -2*healthcareQuestions[i].effect.lab} else
         {lab_w = 0}
     } else
     {lab_w = 0}
   };
   
     function gconm(mult,i){
-    if(Math.abs(questions[i].effect.con) == 2){ con_w = mult*questions[i].effect.con} else
-    if(Math.abs(questions[i].effect.con) == 1){
-        if(mult > 0){ con_w = 2*questions[i].effect.con} else
-        if(mult < 0){ con_w = -2*questions[i].effect.con} else
+    if(Math.abs(healthcareQuestions[i].effect.con) == 2){ con_w = mult*healthcareQuestions[i].effect.con} else
+    if(Math.abs(healthcareQuestions[i].effect.con) == 1){
+        if(mult > 0){ con_w = 2*healthcareQuestions[i].effect.con} else
+        if(mult < 0){ con_w = -2*healthcareQuestions[i].effect.con} else
         {con_w = 0}
     } else
     {con_w = 0}
   };
   
     function gldm(mult,i){
-    if(Math.abs(questions[i].effect.ld) == 2){ ld_w = mult*questions[i].effect.ld } else
-    if(Math.abs(questions[i].effect.ld) == 1){
-        if(mult > 0){ ld_w = 2*questions[i].effect.ld} else
-        if(mult < 0){ ld_w = -2*questions[i].effect.ld} else
+    if(Math.abs(healthcareQuestions[i].effect.ld) == 2){ ld_w = mult*healthcareQuestions[i].effect.ld } else
+    if(Math.abs(healthcareQuestions[i].effect.ld) == 1){
+        if(mult > 0){ ld_w = 2*healthcareQuestions[i].effect.ld} else
+        if(mult < 0){ ld_w = -2*healthcareQuestions[i].effect.ld} else
         {ld_w = 0}
     } else
     {ld_w = 0}
   };
   
     function glibm(mult,i){
-    if(Math.abs(questions[i].effect.lib) == 2){ lib_w = mult*questions[i].effect.lib } else
-    if(Math.abs(questions[i].effect.lib) == 1){
-        if(mult > 0){ lib_w = 2*questions[i].effect.lib} else
-        if(mult < 0){ lib_w = -2*questions[i].effect.lib} else
+    if(Math.abs(healthcareQuestions[i].effect.lib) == 2){ lib_w = mult*healthcareQuestions[i].effect.lib } else
+    if(Math.abs(healthcareQuestions[i].effect.lib) == 1){
+        if(mult > 0){ lib_w = 2*healthcareQuestions[i].effect.lib} else
+        if(mult < 0){ lib_w = -2*healthcareQuestions[i].effect.lib} else
         {lib_w = 0}
     } else
     {lib_w = 0}
   };
   
     function gcitm(mult,i){
-    if(Math.abs(questions[i].effect.cit) == 2){ cit_w = mult*questions[i].effect.cit } else
-    if(Math.abs(questions[i].effect.cit) == 1){
-        if(mult > 0){ cit_w = 2*questions[i].effect.cit} else
-        if(mult < 0){ cit_w = -2*questions[i].effect.cit} else
+    if(Math.abs(healthcareQuestions[i].effect.cit) == 2){ cit_w = mult*healthcareQuestions[i].effect.cit } else
+    if(Math.abs(healthcareQuestions[i].effect.cit) == 1){
+        if(mult > 0){ cit_w = 2*healthcareQuestions[i].effect.cit} else
+        if(mult < 0){ cit_w = -2*healthcareQuestions[i].effect.cit} else
         {cit_w = 0}
     } else
     {cit_w = 0}
-  };
-  
-  function get_cat_weight(i) {
-    if(i <= 8){ qn_w = 19448 } else
-    if(i <= 16){ qn_w = 21879 } else
-    if(i <= 27){ qn_w = 15912 } else
-    if(i <= 36){ qn_w = 19448 } else
-    if(i <= 49){ qn_w = 13464 } else
-    if(i <= 66){ qn_w = 10296 } else
-    if(i <= 72){ qn_w = 29172 } else
-    if(i <= 85){ qn_w = 13464 } else
-    {qn_w = 0}
   };
 
     function next_question(mult) {
@@ -158,7 +146,6 @@
       gldm(mult,qn);
       glibm(mult,qn);
       gcitm(mult,qn);
-      get_cat_weight(qn);
         lab += lab_w*qn_w;
         con += con_w*qn_w;
         ld += ld_w*qn_w;
@@ -176,7 +163,6 @@
       gldm(prev_answer,qn);
       glibm(prev_answer,qn);
       gcitm(prev_answer,qn);
-      get_cat_weight(qn);
         lab -= lab_w*qn_w;
         con -= con_w*qn_w;
         ld -= ld_w*qn_w;
