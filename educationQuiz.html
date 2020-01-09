@@ -36,18 +36,22 @@
     var max_lab, max_con, max_ld, max_lib, max_cit; // Max possible scores
     max_lab = max_con = max_ld = max_lib = max_cit =0;
     var lab, con, ld, lib, cit; // User's scores
+  lab = con = ld = lib = cit = 0;
     var qn = 0; // Question number
     var prev_answer = null;
     var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
     lab_w = con_w = ld_w = lib_w = cit_w = 0;
     qn_w = 1;
   
-   lab = getQueryVariable("a");
-   con = getQueryVariable("b")
-   ld =  getQueryVariable("c")
-   lib = getQueryVariable("d")
-   cit = getQueryVariable("e")
+   
   
+  var pass_lab, pass_con, pass_ld, pass_lib, pass_cit;
+  
+   pass_lab = getQueryVariable("a");
+   pass_con = getQueryVariable("b")
+   pass_ld =  getQueryVariable("c")
+   pass_lib = getQueryVariable("d")
+   pass_cit = getQueryVariable("e")
   
     init_question();
     for (var i = 0; i < questions.length; i++) {
@@ -148,6 +152,11 @@
         if (qn < questions.length) {
             init_question();
         } else {
+          pass_lab += calc_score(lab,max_lab);
+          pass_con += calc_score(con,max_con);
+          pass_ld += calc_score(ld,max_ld);
+          pass_lib += calc_score(lib,max_lib);
+          pass_cit += calc_score(cit,max_cit);
             results();
         }
     }
@@ -192,11 +201,11 @@
   
     function results() {
         location.href = `educationSection.html`
-            + `?a=${getQueryVariable("a")+calc_score(lab,max_lab)}`
-            + `&b=${getQueryVariable("b")+calc_score(con,max_con)}`
-            + `&c=${getQueryVariable("c")+calc_score(ld,max_ld)}`
-            + `&d=${getQueryVariable("d")+calc_score(lib,max_lib)}`
-            + `&e=${getQueryVariable("e")+calc_score(cit,max_cit)}`
+            + `?a=${pass_lab}`
+            + `&b=${pass_con}`
+            + `&c=${pass_ld}`
+            + `&d=${pass_lib}`
+            + `&e=${pass_cit}`
             + `&y=${getQueryVariable("y")}`;      
     }
 </script>
