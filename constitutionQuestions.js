@@ -1,4 +1,4 @@
-constitutionQuestions = [
+questions = [
 {
         "question": "16-year olds should be allowed to vote.",
         "effect": {
