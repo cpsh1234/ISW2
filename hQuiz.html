@@ -40,8 +40,10 @@
     var prev_answer = null;
     var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
     lab_w = con_w = ld_w = lib_w = cit_w = 0;
-    var section = 3; //getQueryVariable("z");
-    qn_w = 19448;
+    qn_w = 19448 * getQueryVariable("z");
+  
+  
+  
     init_question();
     for (var i = 0; i < questions.length; i++) {
       glabm(2,i);
@@ -49,12 +51,16 @@
       gldm(2,i);
       glibm(2,i);
       gcitm(2,i);
-        max_lab += Math.abs(lab_w*qn_w*section);
-        max_con += Math.abs(con_w*qn_w*section);
-        max_ld += Math.abs(ld_w*qn_w*section);
-        max_lib += Math.abs(lib_w*qn_w*section);
-        max_cit += Math.abs(cit_w*qn_w*section);
+      get_cat_weight(i);
+        max_lab += Math.abs(lab_w*qn_w);
+        max_con += Math.abs(con_w*qn_w);
+        max_ld += Math.abs(ld_w*qn_w);
+        max_lib += Math.abs(lib_w*qn_w);
+        max_cit += Math.abs(cit_w*qn_w);
     }
+  
+  
+  
 //Initialises the question
     function init_question() {
         document.getElementById("question-text").innerHTML = questions[qn].question;
@@ -66,7 +72,6 @@
             document.getElementById("back_button").style.display = 'block';
             document.getElementById("back_button_off").style.display = 'none';
         }
-
     }
   
       function getQueryVariable(variable)
@@ -130,7 +135,8 @@
     } else
     {cit_w = 0}
   };
-
+  
+  
     function next_question(mult) {
       mark_question(mult);
         qn++;
@@ -141,20 +147,22 @@
             results();
         }
     }
+  
+  
   function mark_question(mult){
     glabm(mult,qn);
       gconm(mult,qn);
       gldm(mult,qn);
       glibm(mult,qn);
       gcitm(mult,qn);
-        lab += lab_w*qn_w*section;
-        con += con_w*qn_w*section;
-        ld += ld_w*qn_w*section;
-        lib += lib_w*qn_w*section;
-        cit += cit_w*qn_w*section;
+        lab += lab_w*qn_w;
+        con += con_w*qn_w;
+        ld += ld_w*qn_w;
+        lib += lib_w*qn_w;
+        cit += cit_w*qn_w;
   }
   
-    function prev_question() {
+      function prev_question() {
         if (prev_answer == null) {
             return;
         }
@@ -164,18 +172,17 @@
       gldm(prev_answer,qn);
       glibm(prev_answer,qn);
       gcitm(prev_answer,qn);
-        lab -= lab_w*qn_w*section;
-        con -= con_w*qn_w*section;
-        ld -= ld_w*qn_w*section;
-        lib -= lib_w*qn_w*section;
-        cit -= cit_w*qn_w*section;
+      get_cat_weight(qn);
+        lab -= lab_w*qn_w;
+        con -= con_w*qn_w;
+        ld -= ld_w*qn_w;
+        lib -= lib_w*qn_w;
+        cit -= cit_w*qn_w;
         prev_answer = null;
         init_question();
-
     }
 
   
-    }
     function results() {
         location.href = `educationSection.html`
             + `?a=${lab}`
