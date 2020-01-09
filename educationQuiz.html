@@ -39,7 +39,7 @@
     var prev_answer = null;
     var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
     lab_w = con_w = ld_w = lib_w = cit_w = 0;
-    qn_w = 21879 * getQueryVariable("z");
+    qn_w = 1;
   
    lab = getQueryVariable("a");
    con = getQueryVariable("b")
@@ -191,18 +191,18 @@
     }
 
   
+      function calc_score(score,max) {
+        return (100*(max+score)/(2*max)).toFixed(1)* getQueryVariable("z")
+    }
+  
     function results() {
-        location.href = `socialSection.html`
-                   + `?a=${lab}`
-                   + `&ma=${max_lab}`
-                   + `&b=${con}`
-                   + `&c=${ld}`
-                   + `&d=${lib}`
-                   + `&e=${cit}`
-                   + `&mb=${max_con}`
-                   + `&mc=${max_ld}`
-                   + `&md=${max_lib}`
-                   + `&me=${max_cit}`;       
+        location.href = `educationSection.html`
+            + `?a=${getQueryVariable("a")+calc_score(lab,max_lab)}`
+            + `&b=${getQueryVariable("b")+calc_score(con,max_con)}`
+            + `&c=${getQueryVariable("c")+calc_score(ld,max_ld)}`
+            + `&d=${getQueryVariable("d")+calc_score(lib,max_lib)}`
+            + `&e=${getQueryVariable("e")+calc_score(cit,max_cit)}`
+            + `&y=${getQueryVariable("y")}`;      
     }
 </script>
 </body>
