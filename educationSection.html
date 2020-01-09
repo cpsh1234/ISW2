@@ -31,7 +31,7 @@
    var mult = 0;
    var lab, con, ld, lib, cit; // User's scores
   
-  var care = getQueryVariable("y")
+  var care = 0;
    
    lab = getQueryVariable("a");
    con = getQueryVariable("b");
@@ -52,7 +52,7 @@
    
    function questions(i){
    mult = i;
-     care += i;
+     care = getQueryVariable("y") + i;
        location.href = `educationQuiz.html`
                    + `?z=${mult}`
                    + `&a=${lab}`
