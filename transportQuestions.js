@@ -1,4 +1,4 @@
-transportQuestions = [
+questions = [
 {
         "question": "The train lines should be nationalised.",
         "effect": {
