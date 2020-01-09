@@ -173,16 +173,21 @@
         init_question();
 
     }
-    function calc_score(score,max) {
-        return (100*(max+score)/(2*max)).toFixed(1)
+
+  
     }
     function results() {
-        location.href = `results.html`
-            + `?a=${calc_score(lab,max_lab)}`
-            + `&b=${calc_score(con,max_con)}`
-            + `&c=${calc_score(ld,max_ld)}`
-            + `&d=${calc_score(lib,max_lib)}`
-            + `&e=${calc_score(cit,max_cit)}`;
+        location.href = `educationSection.html`
+            + `?a=${lab}`
+            + `?ma=${max_lab}`
+            + `&b=${con}`
+            + `&c=${ld}`
+            + `&d=${lib}`
+            + `&e=${cit}`
+            + `&mb=${max_con}`
+            + `&mc=${max_ld}`
+            + `&md=${max_lib}`
+            + `&me=${max_cit}`;        
     }
 </script>
 </body>
