@@ -1,0 +1,41 @@
+<head>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+<link href='style.css' rel='stylesheet' type='text/css'>
+<title>TSR MHoC ISideWith</title>
+<link rel="icon" type="x-icon" href="icon.png">
+<link rel="shortcut icon" type="x-icon" href="icon.png">
+<meta charset="utf-8">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6511426299019766",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<script type="application/javascript"
+        src="questions.js">
+</script>
+<h1>TSR MHoC ISideWith</h1>
+<hr>
+<h2 style="text-align:center;">Healthcare Issues to me are</h2>
+<p class="question" id="question-text"></p>
+<button class="button" onclick="questions(5.0)" style="background-color: #1b5e20;">Most Important</button> <br>
+<button class="button" onclick="questions(4.0)" style="background-color: #4caf50;">Very Important</button> <br>
+<button class="button" onclick="questions(3.0)" style="background-color: #bbbbbb;">Moderately Important/Unsure</button> <br>
+<button class="button" onclick="questions(2.0)" style="background-color: #f44336;">Less Important</button> <br>
+<button class="button" onclick="questions(1.0)" style="background-color: #b71c1c;">Not Important</button> <br>
+<button class="small_button" onclick="prev_question()" id="back_button">Back</button>
+<button class="small_button_off" id="back_button_off">Back</button><br>
+
+<script>
+   var mult = 0;
+   
+   function questions(i){
+   mult = i;
+       location.href = `healthcareQuestions.html`
+                   + `?a=${mult}`;
+                   }
+</script>
+</body>
