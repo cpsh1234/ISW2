@@ -34,24 +34,24 @@
 <!-- JavaScript for the test itself -->
 <script>
     var max_lab, max_con, max_ld, max_lib, max_cit; // Max possible scores
+    max_lab = max_con = max_ld = max_lib = max_cit =0;
     var lab, con, ld, lib, cit; // User's scores
+  lab = con = ld = lib = cit = 0;
     var qn = 0; // Question number
     var prev_answer = null;
     var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
     lab_w = con_w = ld_w = lib_w = cit_w = 0;
-    qn_w = 15912 * getQueryVariable("z");
+    qn_w = 1;
   
-     lab = getQueryVariable("a");
-   con = getQueryVariable("b")
-   ld =  getQueryVariable("c")
-   lib = getQueryVariable("d")
-   cit = getQueryVariable("e")
    
-   max_lab = getQueryVariable("ma");
-   max_con = getQueryVariable("mb")
-   max_ld =  getQueryVariable("mc")
-   max_lib = getQueryVariable("md")
-   max_cit = getQueryVariable("me")
+  
+  var pass_lab, pass_con, pass_ld, pass_lib, pass_cit;
+  
+   pass_lab = 0;
+   pass_con = 0;
+   pass_ld =  0;
+   pass_lib = 0;
+   pass_cit = 0;
   
   
     init_question();
@@ -153,6 +153,11 @@
         if (qn < questions.length) {
             init_question();
         } else {
+          pass_lab = parseInt(getQueryVariable("a")) + parseInt(calc_score(lab,max_lab));
+          pass_con = parseInt(getQueryVariable("b")) + parseInt(calc_score(con,max_con));
+          pass_ld = parseInt(getQueryVariable("c")) + parseInt(calc_score(ld,max_ld));
+          pass_lib = parseInt(getQueryVariable("d")) + parseInt(calc_score(lib,max_lib));
+          pass_cit = parseInt(getQueryVariable("e")) + parseInt(calc_score(cit,max_cit));
             results();
         }
     }
@@ -191,18 +196,18 @@
     }
 
   
+        function calc_score(score,max) {
+        return (100*(max+score)/(2*max)).toFixed(1)* getQueryVariable("z")
+    
+  
     function results() {
         location.href = `constitutionSection.html`
-                   + `?a=${lab}`
-                   + `&ma=${max_lab}`
-                   + `&b=${con}`
-                   + `&c=${ld}`
-                   + `&d=${lib}`
-                   + `&e=${cit}`
-                   + `&mb=${max_con}`
-                   + `&mc=${max_ld}`
-                   + `&md=${max_lib}`
-                   + `&me=${max_cit}`;         
+            + `?a=${pass_lab}`
+            + `&b=${pass_con}`
+            + `&c=${pass_ld}`
+            + `&d=${pass_lib}`
+            + `&e=${pass_cit}`
+            + `&y=${getQueryVariable("y")}`        
     }
 </script>
 </body>
