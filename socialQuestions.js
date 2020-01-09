@@ -1,4 +1,4 @@
-socialQuestions = [
+questions = [
 {
         "question": "Murderers who don't disclose the location of bodies should be denied parole.",
         "effect": {
