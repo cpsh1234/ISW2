@@ -1,0 +1,74 @@
+<head>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+<link href='style.css' rel='stylesheet' type='text/css'>
+<title>TSR MHoC ISideWith</title>
+<link rel="icon" type="x-icon" href="icon.png">
+<link rel="shortcut icon" type="x-icon" href="icon.png">
+<meta charset="utf-8">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6511426299019766",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<script type="application/javascript"
+        src="questions.js">
+</script>
+<h1>TSR MHoC ISideWith</h1>
+<hr>
+<h2 style="text-align:center;">Section 2 of 8</h2>
+<h2 style="text-align:center;">Education issues to me are:</h2>
+<button class="button" onclick="questions(5.0)" style="background-color: #9f00c7;">Most Important</button> <br>
+<button class="button" onclick="questions(4.0)" style="background-color: #dd57ff;">Very Important</button> <br>
+<button class="button" onclick="questions(3.0)" style="background-color: #00fbff;">Moderately Important/Unsure</button> <br>
+<button class="button" onclick="questions(2.0)" style="background-color: #ffc445;">Less Important</button> <br>
+<button class="button" onclick="questions(1.0)" style="background-color: #d69200;">Not Important</button> <br>
+  
+<script>
+   var mult = 0;
+   var max_lab, max_con, max_ld, max_lib, max_cit; // Max possible scores
+   var lab, con, ld, lib, cit; // User's scores
+   
+   lab = getQueryVariable("a");
+   con = getQueryVariable("b")
+   ld =  getQueryVariable("c")
+   lib = getQueryVariable("d")
+   cit = getQueryVariable("e")
+   
+   max_lab = getQueryVariable("ma");
+   max_con = getQueryVariable("mb")
+   max_ld =  getQueryVariable("mc")
+   max_lib = getQueryVariable("md")
+   max_cit = getQueryVariable("me")
+   
+         function getQueryVariable(variable)
+    {
+           var query = window.location.search.substring(1)
+           var vars = query.split("&")
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=")
+                   if(pair[0] == variable) {return pair[1]}
+           }
+           return(NaN);
+    }
+   
+   function questions(i){
+   mult = i;
+       location.href = `educationQuiz.html`
+                   + `?z=${mult}`
+                   + `?a=${lab}`
+                   + `?ma=${max_lab}`
+                   + `&b=${con}`
+                   + `&c=${ld}`
+                   + `&d=${lib}`
+                   + `&e=${cit}`
+                   + `&mb=${max_con}`
+                   + `&mc=${max_ld}`
+                   + `&md=${max_lib}`
+                   + `&me=${max_cit}`;
+                   }
+</script>
+</body>
