@@ -1,0 +1,208 @@
+<head>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+<link href='style.css' rel='stylesheet' type='text/css'>
+<title>TSR MHoC ISideWith</title>
+<link rel="icon" type="x-icon" href="icon.png">
+<link rel="shortcut icon" type="x-icon" href="icon.png">
+<meta charset="utf-8">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6511426299019766",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<script type="application/javascript"
+        src="constitutionQuestions.js">
+</script>
+<h1>TSR MHoC ISideWith</h1>
+<hr>
+<h2 style="text-align:center;"> Constitution</h2>
+<h2 style="text-align:center;" id="question-number">Loading...</h2>
+<p class="question" id="question-text"></p>
+<button class="button" onclick="next_question( 2.0)" style="background-color: #1b5e20;">Strongly Agree</button> <br>
+<button class="button" onclick="next_question( 1.0)" style="background-color: #4caf50;">Agree</button> <br>
+<button class="button" onclick="next_question( 0.0)" style="background-color: #bbbbbb;">Neutral/Unsure</button> <br>
+<button class="button" onclick="next_question(-1.0)" style="background-color: #f44336;">Disagree</button> <br>
+<button class="button" onclick="next_question(-2.0)" style="background-color: #b71c1c;">Strongly Disagree</button> <br>
+<button class="small_button" onclick="prev_question()" id="back_button">Back</button>
+<button class="small_button_off" id="back_button_off">Back</button><br>
+  
+
+<!-- JavaScript for the test itself -->
+<script>
+    var max_lab, max_con, max_ld, max_lib, max_cit; // Max possible scores
+    var lab, con, ld, lib, cit; // User's scores
+    var qn = 0; // Question number
+    var prev_answer = null;
+    var lab_w, con_w, ld_w, lib_w, cit_w, qn_w;
+    lab_w = con_w = ld_w = lib_w = cit_w = 0;
+    qn_w = 19448 * getQueryVariable("z");
+  
+     lab = getQueryVariable("a");
+   con = getQueryVariable("b")
+   ld =  getQueryVariable("c")
+   lib = getQueryVariable("d")
+   cit = getQueryVariable("e")
+   
+   max_lab = getQueryVariable("ma");
+   max_con = getQueryVariable("mb")
+   max_ld =  getQueryVariable("mc")
+   max_lib = getQueryVariable("md")
+   max_cit = getQueryVariable("me")
+  
+  
+    init_question();
+    for (var i = 0; i < questions.length; i++) {
+      glabm(2,i);
+      gconm(2,i);
+      gldm(2,i);
+      glibm(2,i);
+      gcitm(2,i);
+        max_lab += Math.abs(lab_w*qn_w);
+        max_con += Math.abs(con_w*qn_w);
+        max_ld += Math.abs(ld_w*qn_w);
+        max_lib += Math.abs(lib_w*qn_w);
+        max_cit += Math.abs(cit_w*qn_w);
+    }
+  
+  
+  
+//Initialises the question
+    function init_question() {
+        document.getElementById("question-text").innerHTML = questions[qn].question;
+        document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (questions.length);
+        if (prev_answer == null) {
+            document.getElementById("back_button").style.display = 'none';
+            document.getElementById("back_button_off").style.display = 'block';
+        } else {
+            document.getElementById("back_button").style.display = 'block';
+            document.getElementById("back_button_off").style.display = 'none';
+        }
+    }
+  
+      function getQueryVariable(variable)
+    {
+           var query = window.location.search.substring(1)
+           var vars = query.split("&")
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=")
+                   if(pair[0] == variable) {return pair[1]}
+           }
+           return(NaN);
+    }
+  
+// Weight Party Scores
+  function glabm(mult,i){
+    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab } else
+    if(Math.abs(questions[i].effect.lab) == 1){
+        if(mult > 0){ lab_w = 2*questions[i].effect.lab} else
+        if(mult < 0){ lab_w = -2*questions[i].effect.lab} else
+        {lab_w = 0}
+    } else
+    {lab_w = 0}
+  };
+  
+    function gconm(mult,i){
+    if(Math.abs(questions[i].effect.con) == 2){ con_w = mult*questions[i].effect.con} else
+    if(Math.abs(questions[i].effect.con) == 1){
+        if(mult > 0){ con_w = 2*questions[i].effect.con} else
+        if(mult < 0){ con_w = -2*questions[i].effect.con} else
+        {con_w = 0}
+    } else
+    {con_w = 0}
+  };
+  
+    function gldm(mult,i){
+    if(Math.abs(questions[i].effect.ld) == 2){ ld_w = mult*questions[i].effect.ld } else
+    if(Math.abs(questions[i].effect.ld) == 1){
+        if(mult > 0){ ld_w = 2*questions[i].effect.ld} else
+        if(mult < 0){ ld_w = -2*questions[i].effect.ld} else
+        {ld_w = 0}
+    } else
+    {ld_w = 0}
+  };
+  
+    function glibm(mult,i){
+    if(Math.abs(questions[i].effect.lib) == 2){ lib_w = mult*questions[i].effect.lib } else
+    if(Math.abs(questions[i].effect.lib) == 1){
+        if(mult > 0){ lib_w = 2*questions[i].effect.lib} else
+        if(mult < 0){ lib_w = -2*questions[i].effect.lib} else
+        {lib_w = 0}
+    } else
+    {lib_w = 0}
+  };
+  
+    function gcitm(mult,i){
+    if(Math.abs(questions[i].effect.cit) == 2){ cit_w = mult*questions[i].effect.cit } else
+    if(Math.abs(questions[i].effect.cit) == 1){
+        if(mult > 0){ cit_w = 2*questions[i].effect.cit} else
+        if(mult < 0){ cit_w = -2*questions[i].effect.cit} else
+        {cit_w = 0}
+    } else
+    {cit_w = 0}
+  };
+  
+  
+    function next_question(mult) {
+      mark_question(mult);
+        qn++;
+        prev_answer = mult;
+        if (qn < questions.length) {
+            init_question();
+        } else {
+            results();
+        }
+    }
+  
+  
+  function mark_question(mult){
+    glabm(mult,qn);
+      gconm(mult,qn);
+      gldm(mult,qn);
+      glibm(mult,qn);
+      gcitm(mult,qn);
+        lab += lab_w*qn_w;
+        con += con_w*qn_w;
+        ld += ld_w*qn_w;
+        lib += lib_w*qn_w;
+        cit += cit_w*qn_w;
+  }
+  
+      function prev_question() {
+        if (prev_answer == null) {
+            return;
+        }
+        qn--;
+      glabm(prev_answer,qn);
+      gconm(prev_answer,qn);
+      gldm(prev_answer,qn);
+      glibm(prev_answer,qn);
+      gcitm(prev_answer,qn);
+        lab -= lab_w*qn_w;
+        con -= con_w*qn_w;
+        ld -= ld_w*qn_w;
+        lib -= lib_w*qn_w;
+        cit -= cit_w*qn_w;
+        prev_answer = null;
+        init_question();
+    }
+
+  
+    function results() {
+        location.href = `environmentSection.html`
+            + `?a=${lab}`
+            + `?ma=${max_lab}`
+            + `&b=${con}`
+            + `&c=${ld}`
+            + `&d=${lib}`
+            + `&e=${cit}`
+            + `&mb=${max_con}`
+            + `&mc=${max_ld}`
+            + `&md=${max_lib}`
+            + `&me=${max_cit}`;        
+    }
+</script>
+</body>
