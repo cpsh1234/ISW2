@@ -16,7 +16,7 @@ questions = [
             "con": 2,
             "ld": -2,
             "lib": 2,
-            "cit": 0
+            "cit": 1
         }
     },
     {
