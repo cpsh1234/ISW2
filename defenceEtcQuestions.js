@@ -66,7 +66,7 @@ questions = [
             "con": 2,
             "ld": -2,
             "lib": 1,
-            "cit": -1
+            "cit": -2
         }
     },
     {
@@ -76,7 +76,7 @@ questions = [
             "con": 2,
             "ld": -1,
             "lib": -1,
-            "cit": 1
+            "cit": 2
         }
     },
     {
@@ -86,7 +86,7 @@ questions = [
             "con": 2,
             "ld": -1,
             "lib": 1,
-            "cit": -1
+            "cit": 1
         }
     },
     {
