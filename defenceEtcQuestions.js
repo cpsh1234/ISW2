@@ -5,7 +5,7 @@ questions = [
             "lab": 2,
             "con": -2,
             "ld": 0,
-            "lib": -1,
+            "lib": -2,
             "cit": 1
         }
     },
