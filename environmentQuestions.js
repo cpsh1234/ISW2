@@ -105,7 +105,7 @@ questions = [
             "lab": 1,
             "con": -1,
             "ld": 2,
-            "lib": -2,
+            "lib": -1,
             "cit": 1
         }
     },
