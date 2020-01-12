@@ -87,50 +87,50 @@
   
 // Weight Party Scores
   function glabm(mult,i){
-    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab } else
+    if(Math.abs(questions[i].effect.lab) == 2){ lab_w = mult*questions[i].effect.lab*2.5} else
     if(Math.abs(questions[i].effect.lab) == 1){
-        if(mult > 0){ lab_w = 2*questions[i].effect.lab} else
-        if(mult < 0){ lab_w = -2*questions[i].effect.lab} else
+        if(mult > 0){ lab_w = 7*questions[i].effect.lab} else
+        if(mult < 0){ lab_w = -7*questions[i].effect.lab} else
         {lab_w = 0}
     } else
     {lab_w = 0}
   };
   
     function gconm(mult,i){
-    if(Math.abs(questions[i].effect.con) == 2){ con_w = mult*questions[i].effect.con} else
+    if(Math.abs(questions[i].effect.con) == 2){ con_w = mult*questions[i].effect.con*2.5} else
     if(Math.abs(questions[i].effect.con) == 1){
-        if(mult > 0){ con_w = 2*questions[i].effect.con} else
-        if(mult < 0){ con_w = -2*questions[i].effect.con} else
+        if(mult > 0){ con_w = 7*questions[i].effect.con} else
+        if(mult < 0){ con_w = -7*questions[i].effect.con} else
         {con_w = 0}
     } else
     {con_w = 0}
   };
   
     function gldm(mult,i){
-    if(Math.abs(questions[i].effect.ld) == 2){ ld_w = mult*questions[i].effect.ld } else
+    if(Math.abs(questions[i].effect.ld) == 2){ ld_w = mult*questions[i].effect.ld*2.5} else
     if(Math.abs(questions[i].effect.ld) == 1){
-        if(mult > 0){ ld_w = 2*questions[i].effect.ld} else
-        if(mult < 0){ ld_w = -2*questions[i].effect.ld} else
+        if(mult > 0){ ld_w = 7*questions[i].effect.ld} else
+        if(mult < 0){ ld_w = -7*questions[i].effect.ld} else
         {ld_w = 0}
     } else
     {ld_w = 0}
   };
   
     function glibm(mult,i){
-    if(Math.abs(questions[i].effect.lib) == 2){ lib_w = mult*questions[i].effect.lib } else
+    if(Math.abs(questions[i].effect.lib) == 2){ lib_w = mult*questions[i].effect.lib*2.5} else
     if(Math.abs(questions[i].effect.lib) == 1){
-        if(mult > 0){ lib_w = 2*questions[i].effect.lib} else
-        if(mult < 0){ lib_w = -2*questions[i].effect.lib} else
+        if(mult > 0){ lib_w = 7*questions[i].effect.lib} else
+        if(mult < 0){ lib_w = -7*questions[i].effect.lib} else
         {lib_w = 0}
     } else
     {lib_w = 0}
   };
   
     function gcitm(mult,i){
-    if(Math.abs(questions[i].effect.cit) == 2){ cit_w = mult*questions[i].effect.cit } else
+    if(Math.abs(questions[i].effect.cit) == 2){ cit_w = mult*questions[i].effect.cit*2.5} else
     if(Math.abs(questions[i].effect.cit) == 1){
-        if(mult > 0){ cit_w = 2*questions[i].effect.cit} else
-        if(mult < 0){ cit_w = -2*questions[i].effect.cit} else
+        if(mult > 0){ cit_w = 7*questions[i].effect.cit} else
+        if(mult < 0){ cit_w = -7*questions[i].effect.cit} else
         {cit_w = 0}
     } else
     {cit_w = 0}
